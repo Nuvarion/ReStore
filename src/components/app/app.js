@@ -1,16 +1,17 @@
 import React from 'react';
 
 import Spinner from '../spinner';
+import { withBookstoreService } from '../hoc';
 import ErrorBoundry from '../error-boundry';
+import BookstoreService from '../../services/bookstore-service';
 
 import './app.css';
 
-const App = () => {
+const App = ({ bookstoreService }) => {
+    console.log(bookstoreService.getBooks());
     return (
-        <ErrorBoundry>
-            <Spinner />
-        </ErrorBoundry>
+        <div>App</div>
     );
 };
 
-export default App;
+export default withBookstoreService()(App);
