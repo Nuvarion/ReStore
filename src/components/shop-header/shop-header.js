@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import './shop-header.css';
@@ -20,4 +21,15 @@ const ShopHeader = ({ numItems, total }) => {
     );
 };
 
-export default ShopHeader;
+const mapStateToProps = ({ shoppingCart: { cartItems, orderTotal }}) => {
+    return {
+    //   count: count,
+      total: orderTotal
+    };
+  };
+
+const mapDispatchToProps = {
+
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ShopHeader);
